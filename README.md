@@ -57,12 +57,21 @@ var venue = {id: 2, name: 'Rogers Centre'};
 route('events.venues.show', [event, venue]) // Returns '/events/1/venues/2'
 ```
 
-Practical AJAX example:
+Practical AJAX examples:
 
 ```js
 var post = {id: 1, title: 'Ziggy Stardust'};
 
 return axios.get(route('posts.show', post))
+    .then((response) => {
+        return response.data;
+    });
+```
+
+```js
+var user = {id: 1, name: 'Ziggy Marley'};
+
+return axios.post(route('users.submit').url(), user)
     .then((response) => {
         return response.data;
     });
